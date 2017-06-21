@@ -76,7 +76,7 @@ task :post do
   open(filename, 'w') do |post|
     post.puts "---"
     post.puts "layout: #{layout}"
-    post.puts "title: \"#{title.gsub(/-/,' ')}\""
+    post.puts "title: #{slug}"
     post.puts 'description: ""'
     post.puts "category: #{category}"
     post.puts "tags: #{tags}"
