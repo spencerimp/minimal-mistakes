@@ -12,6 +12,7 @@ title_separator          : "-"
 name                     : "Spencer Teng"
 description              : "My tech blog"
 url                      : "https://spencerimp.github.io"
+include                  : ["_pages"]
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : spencerimp/spencerimp.github.io
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -244,3 +245,11 @@ defaults:
       comments: # true
       share: true
       related: true
+
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true

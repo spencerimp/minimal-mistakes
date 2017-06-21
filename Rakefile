@@ -5,12 +5,11 @@ require 'fileutils'
 
 SOURCE = "."
 CONFIG = {
-  'version' => "0.3.0",
-  'themes' => File.join(SOURCE, "_includes", "themes"),
   'layouts' => File.join(SOURCE, "_layouts"),
   'posts' => File.join(SOURCE, "_posts"),
+  'pages' => File.join(SOURCE, "_pages"),
   'post_ext' => "md",
-  'theme_package_version' => "0.1.0"
+  'page_ext' => "md",
 }
 def listen_ignore_paths(base, options)
   [
@@ -49,9 +48,6 @@ def listen_handler(base, options)
   end
 end
 
-task :preview do
-end
-
 # Usage: rake post title="A Title" [date="2012-02-09"] [tags=[tag1,tag2]] [category="category"] [layout="default"]
 desc "Begin a new post in #{CONFIG['posts']}"
 task :post do
@@ -85,10 +81,33 @@ task :post do
     post.puts "category: #{category}"
     post.puts "tags: #{tags}"
     post.puts "---"
-  end
-
+  end # end of open flle
 end # task :post
 
+
+# Usage: rake page title="A Title"
+desc "Begin a new page in #{CONFIG['pages']}"
+task :page do
+  unless File.directory?(CONFIG['pages'])
+    FileUtils.mkdir_p(CONFIG['pages'])
+  end
+  abort("rake aborted: '#{CONFIG['pages']}' directory not found.") unless FileTest.directory?(CONFIG['pages'])
+  title = ENV["title"] || "new_page"
+  filename = File.join(CONFIG['pages'], "#{title}.#{CONFIG['page_ext']}")
+  if File.exist?(filename)
+    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
+  end
+
+  puts "Creating new page: #{filename}"
+  open(filename, 'w') do |page|
+    page.puts "---"
+    page.puts "layout: single"
+    page.puts "title: \"#{title.gsub(/-/,' ')}\""
+    page.puts 'description: ""'
+    page.puts "permalink: /#{title}/"
+    page.puts "---"
+  end # end of open flle
+end # task :page
 
 task :preview do
   system "bundle exec jekyll serve -w"
