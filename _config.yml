@@ -79,10 +79,10 @@ analytics:
 # Site Author
 author:
   name             : "Spencer Teng"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/bio.png"
   bio              : ""
   location         : "Denmark"
-  email            :
+  email            : "spencer.tengz@gmail.com"
   uri              :
   bitbucket        :
   codepen          :
@@ -90,12 +90,12 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           :
+  github           : "https://spencerimp.github.com"
   google_plus      :
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         :
+  linkedin         : "https://www.linkedin.com/in/spencerimp/"
   pinterest        :
   soundcloud       :
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. http://stackoverflow.com/users/123456/username)
@@ -185,6 +185,8 @@ gems:
   - jekyll-gist
   - jekyll-feed
   - jemoji
+  - jekyll-archives
+
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -205,23 +207,24 @@ whitelist:
 #  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
 #  - <base_path/categories/my-awesome-category/index.html ~> path: /categories/
 #  - <base_path/my-awesome-category/index.html ~> path: /
+
 category_archive:
-  type: liquid
+  type: jekyll-archives
   path: /categories/
 tag_archive:
-  type: liquid
+  type: jekyll-archives
   path: /tags/
-# https://github.com/jekyll/jekyll-archives
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layouts:
-#     category: archive-taxonomy
-#     tag: archive-taxonomy
-#   permalinks:
-#     category: /categories/:name/
-#     tag: /tags/:name/
+ #https://github.com/jekyll/jekyll-archives
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive-taxonomy
+    tag: archive-taxonomy
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
 
 
 # HTML Compression
