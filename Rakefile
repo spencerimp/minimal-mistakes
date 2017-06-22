@@ -11,6 +11,21 @@ CONFIG = {
   'post_ext' => "md",
   'page_ext' => "md",
 }
+
+def ask(message, valid_options)
+  if valid_options
+    answer = get_stdin("#{message} #{valid_options.to_s.gsub(/"/, '').gsub(/, /,'/')} ") while !valid_options.include?(answer)
+  else
+    answer = get_stdin(message)
+  end
+  answer
+end
+
+def get_stdin(message)
+  print message
+  STDIN.gets.chomp
+end
+
 def listen_ignore_paths(base, options)
   [
     /_config\.ya?ml/,
@@ -51,13 +66,9 @@ end
 # Usage: rake post title="A Title" [date="2012-02-09"] [tags=[tag1,tag2]] [category="category"] [layout="default"]
 desc "Begin a new post in #{CONFIG['posts']}"
 task :post do
-  unless File.directory?(CONFIG['posts'])
-    FileUtils.mkdir_p(CONFIG['posts'])
-  end
   abort("rake aborted: '#{CONFIG['posts']}' directory not found.") unless FileTest.directory?(CONFIG['posts'])
   title = ENV["title"] || "new-post"
   tags = ENV["tags"] || "[]"
-  layout = ENV["layout"] || "single"
   category = ENV["category"] || ""
   category = "\"#{category.gsub(/-/,' ')}\"" if !category.empty?
   slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
@@ -68,6 +79,7 @@ task :post do
     exit -1
   end
   filename = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
+  link = "/#{date.gsub('-', '/')}-#{slug}/"
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
@@ -75,11 +87,12 @@ task :post do
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     post.puts "---"
-    post.puts "layout: #{layout}"
-    post.puts "title: #{slug}"
+    post.puts "layout: post"
+    post.puts "title: #{title}"
     post.puts 'description: ""'
     post.puts "category: #{category}"
     post.puts "tags: #{tags}"
+    post.puts "permalink: #{link}"
     post.puts "---"
   end # end of open flle
 end # task :post
@@ -102,9 +115,9 @@ task :page do
   open(filename, 'w') do |page|
     page.puts "---"
     page.puts "layout: single"
-    page.puts "title: \"#{title.gsub(/-/,' ')}\""
+    page.puts "title: #{title}"
     page.puts 'description: ""'
-    page.puts "permalink: /#{title}/"
+    page.puts "permalink: /#{title}.downcase/"
     page.puts "---"
   end # end of open flle
 end # task :page

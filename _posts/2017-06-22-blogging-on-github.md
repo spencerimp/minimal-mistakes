@@ -1,9 +1,10 @@
 ---
 layout: single
-title: blogging-on-github
+title: Blogging on Github
 description: ""
 category:
 tags: []
+permalink: /2007/06/22/blogging-on-github/
 ---
 This blog template is modified from
 
