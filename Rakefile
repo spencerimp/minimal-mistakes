@@ -79,7 +79,7 @@ task :post do
     exit -1
   end
   filename = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
-  link = "/#{date.gsub('-', '/')}-#{slug}/"
+  link = "/#{date.gsub('-', '/')}/#{slug}/"
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
@@ -87,7 +87,7 @@ task :post do
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     post.puts "---"
-    post.puts "layout: post"
+    post.puts "layout: single"
     post.puts "title: #{title}"
     post.puts 'description: ""'
     post.puts "category: #{category}"
