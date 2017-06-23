@@ -1,9 +1,11 @@
 # main links
 main:
-  #- title: "Home"
-    #url: https://spencerimp.github.io
+  - title: "Home"
+    url: /
   - title: "About"
     url: /about/
+  - title: "Archive"
+    url: /tags/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"

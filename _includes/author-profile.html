@@ -235,6 +235,14 @@
         </li>
       {% endif %}
 
+      {% if author.upwork %}
+        <li>
+          <a href="https://www.upwork.com/o/profiles/users/_~{{ author.upwork }}" itemprop="sameAs">
+            <i class="fa fa-fw fa-briefcase" aria-hidden="true"></i> Upwork
+          </a>
+        </li>
+      {% endif %}
+
       {% include author-profile-custom-links.html %}
     </ul>
   </div>
