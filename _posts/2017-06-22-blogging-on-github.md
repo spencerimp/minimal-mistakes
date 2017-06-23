@@ -15,7 +15,7 @@ This blog template is modified from
 ```
 rake post title="my post title"
 # edit the yyyy-mm-dd-xxxx.md
-# the url will be /root-url/xxxx
+# the url will be /root-url/yyyy/mm/dd/xxxx
 ```
 
 # Create a pub page
