@@ -133,7 +133,7 @@ Register: gcr.io/my-project/ubuntu
 
 ```
 docker tag ubuntu specerimp/my-project/ubuntu
-gcloud docker -- push spencer/my-project/ubuntu
+gcloud docker -- push gcr.io/my-project/ubuntu
 gcloud container images list
 ```
 ------
