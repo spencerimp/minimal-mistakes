@@ -3,7 +3,7 @@ layout: single
 title: Kubernetes on AWS and Google Cloud
 description: ""
 category:
-tags: []
+tags: [kubernetes, AWS, Google Cloud]
 permalink: /2017/06/23/kubernetes-on-aws-and-google-cloud/
 ---
 In order to practice, I edit and supplement the post from
