@@ -5,9 +5,9 @@ main:
   - title: "About"
     url: /about/
   - title: "Archive"
-    url: /tags/
+    url: /year-archive/
   # - title: "Sample Posts"
-  #   url: /year-archive/
+  #   url: /tags/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
