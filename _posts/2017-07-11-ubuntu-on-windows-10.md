@@ -2,7 +2,7 @@
 layout: single
 title: Ubuntu on Windows 10
 description: ""
-category: 
+category:
 tags: [windows, linux]
 permalink: /2017/07/11/ubuntu-on-windows-10/
 ---
@@ -12,7 +12,7 @@ This post is a simple note that documents my favoriate setup on a Windows 10 mac
 # Enable Windows Subsystem Linux (WSL)
 
 ```
-Settings -> Update & Security -> For Developers. 
+Settings -> Update & Security -> For Developers.
 Activate the “Developer Mode”
 
 Control panel -> Programs -> Turn Windows Features On or Off -> Enable "Windows Subsystem for Linux (Beta)"
@@ -21,7 +21,7 @@ Restart the machine
 
 # Install the Ubuntu system
 ```
-Search bash 
+Search bash
 type y to continue installing Ubuntu
 Create your username and password for Ubuntu system
 ```
@@ -35,7 +35,7 @@ https://askubuntu.com/questions/931626/upgrade-ubuntu-14-04-to-16-04-on-on-windo
 # check version
 lsb_release -a
 
-# update to latest Ubuntu 
+# update to latest Ubuntu
 # this is the recommended way by Microsoft such it could fail though
 sudo do-release-upgrade
 
@@ -118,18 +118,18 @@ If you need CUDA support (i.e. GPU) in the Docker container, you need to install
 Just download the deb file from their Github release.
 
 ```
-# Rembmer to check the version you prefer 
+# Rembmer to check the version you prefer
 # https://github.com/NVIDIA/nvidia-docker/releases/
 wget -P /tmp https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb
 sudo dpkg -i /tmp/nvidia-docker*.deb && rm /tmp/nvidia-docker*.deb
-``` 
+```
 
 # Install Anaconda 3
 
 ```
 # https://www.continuum.io/downloads
-wget https://repo.continuum.io/archive/Anaconda3-4.4.0-MacOSX-x86_64.sh
-bash Anaconda3-4.4.0-MacOSX-x86_64.sh
+wget https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh
+bash Anaconda3-4.4.0-Linux-x86_64.sh
 ```
 
 # Other configuration
