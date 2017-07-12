@@ -137,7 +137,7 @@ bash Anaconda3-4.4.0-Linux-x86_64.sh
 Default editor
 
 ```
-Set default edit as vim
+#Set default edit as vim
 sudo update-alternatives --config editor
 ```
 
@@ -147,5 +147,22 @@ Or just set the environment in your .bashrc
 export EDITOR=vim
 ```
 
+# Run Docker on Windows
+
+[https://serverfault.com/questions/767994/can-you-run-docker-natively-on-the-new-windows-10-ubuntu-bash-userspace](https://serverfault.com/questions/767994/can-you-run-docker-natively-on-the-new-windows-10-ubuntu-bash-userspace)
+
+This is actually tricker than I expected. We cannot just run Docker inside Ubuntu on Windows. However, we can install Docker for Windows as the engine, and Ubuntu on Windows as client, and connect them via TCP.
 
 
+## Install Docker engine for Windows
+[https://docs.docker.com/docker-for-windows/install/#download-docker-for-windows](https://docs.docker.com/docker-for-windows/install/#download-docker-for-windows)
+
+Steps
+
+- Download and install the Stable Channel
+- Enable Hyper-V in Windows features
+- Download the Docker for [Windows installer](https://download.docker.com/win/stable/InstallDocker.msi)
+- You may need to restart during installation
+
+Note:
+If you Windows machine is a virtual machine, you will probably failed (like me).
