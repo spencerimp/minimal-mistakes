@@ -41,10 +41,12 @@ ImportError: libopencv_reg.so.3.1: cannot enable executable stack as shared obje
 
 This is usally happened importing opencv in Python in Bash for Windows environment.
 
-The idea is to use execstack with you installed opencv libraries. The tricky thing to the locate those libraries. Remember to change [YOUR_ENVIRONMENT] to the activated environment.
+The idea is to use execstack with you installed opencv libraries. The tricky thing to the locate those libraries. 
+
+Remember to change [YOUR_ENVIRONMENT] to the activated environment.
    
 ```
-apt-get install execstack
+sudo apt-get install execstack
 sudo /usr/sbin/execstack -c ~/anaconda3/env/[YOUR_ENVIRONMENT]/lib/libopencv_*
 ```
 
