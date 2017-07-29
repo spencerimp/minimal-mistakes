@@ -213,3 +213,48 @@ Connect the the instance using the key we downloaded
 ```
 ssh -i spencer-key.pem ubuntu@52.34.56.78
 ```
+
+# Custom instance
+
+In real cases we need cutomer instances for our application. Here is an example that
+
+- p2.xlarge (with GPU)
+- Ubuntu 16.04 LTS
+- 100 GB SSD as root device [VolumeType list](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html)
+- 200 GB Magnetic device
+
+```
+aws ec2 run-instances --image-id ami-6d48500b \
+                      --instance-type p2.xlarge \
+                      --count 1 \
+                      --security-groups spencer \
+                      --key-name spencer-key \
+                      --query 'Instances[0].InstanceId' \
+                      --block-device-mapping '[
+                           {
+                             "DeviceName": "/dev/sda1",
+                             "Ebs": {
+                                       "DeleteOnTermination": true,
+                                       "VolumeSize": 100,
+                                       "VolumeType": "gp2"
+                             }
+                           },
+                           {
+                             "DeviceName": "/dev/sdb",
+                             "Ebs": {"VolumeSize": 200}
+                           }
+                      ]'
+```
+
+You can also save the block-device-mapping to a file, say, `block-dev.json`
+
+```
+aws ec2 run-instances --image-id ami-6d48500b \
+                      --instance-type p2.xlarge \
+                      --count 1 \
+                      --security-groups spencer \
+                      --key-name spencer-key \
+                      --query 'Instances[0].InstanceId' \
+                      --block-device-mapping file:block-dev.json
+
+```
