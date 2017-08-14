@@ -35,9 +35,9 @@ If sloth is installed, you can type the executable `sloth` to lanch the GUI.
 
 We need to configure Sloth so that we can create our label set.
 
-We can create a configuration file as a Python script. A configuration is a list of dictionaris.
+We can create a configuration file as a Python script. A configuration is a list of dictionaries.
 
-For example, we want to draw rectagle bounding box for two classes `cat` and `dog`
+For example, we want to draw rectangle bounding boxes for two classes `cat` and `dog`
 ```
 LABELS = (
     {"attributes": {"type":  "rect",
