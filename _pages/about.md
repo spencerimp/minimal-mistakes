@@ -8,7 +8,7 @@ Hi, My name is YuanChing Teng, but I prefer **Spencer**. I was born and raised i
 
 In 2014 I came to Denmark for my Master degree at the University of Copenhagen. My thesis is a 3D medical image segmentation pipeline using deep convolutional neural networks (CNNs).
 
-After graduation I had worked at a research-based company, [Biomediq A/S](http://www.biomediq.com/) for six months to continue my work in deep learning for medical imaging analysis in 2016. In August 2017, I joined [GUTXY](www.gutxy.com) as a data scientist and co-founder.
+After graduation I had worked at a research-based company, [Biomediq A/S](http://www.biomediq.com/) for six months to continue my work in deep learning for medical imaging analysis in 2016. In August 2017, I joined [GUTXY](http://www.gutxy.com) as a data scientist and co-founder.
 
 If you want to know about me a bit more, you could try
 
