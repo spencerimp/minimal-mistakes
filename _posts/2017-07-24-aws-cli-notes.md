@@ -258,3 +258,66 @@ aws ec2 run-instances --image-id ami-6d48500b \
                       --block-device-mapping file:block-dev.json
 
 ```
+
+# Simple Storage Service (S3)
+
+
+## Mount S3 bucket on a local machine or EC2 Linux instance
+
+The idea is to mount the bucket using s3fs, thus we need to
+
+- Install and s3fs set s3 credential locally
+- Get the bucket name via s3api
+- Mount the bucket using s3fs
+
+### Step 1: Install s3fs on the machine
+
+**OSX**
+
+```
+brew cask install osxfuse
+brew install s3fs
+```
+
+**Ubuntu**
+
+```
+sudo apt-get install s3fs 
+```
+
+**Set S3 credential for s3fs**
+
+```
+echo ACCESS_KEY:SECRET_KEY > ~/.passwd-s3fs
+chmod 600 ~/.passwd-s3fs
+```
+
+
+## Step 2: Get bucket name(s)
+Then use awscli to list the bucket name(s)
+
+```
+aws s3api list-buckets --query "Buckets[].Name"
+# assume it returns my-s3-bucket
+```
+
+## Step 3: Mount the bucket
+
+Assume you want to mount it at `my-s3-mount`
+
+```
+s3fs my-s3-bucket my-s3-mount
+```
+
+You can check it using command `mount`, you shoud see something like 
+
+```
+s3fs@osxfuse0 on /Users/spencer/my-s3-mount (osxfuse, nodev, nosuid, synchronous, mounted by spencer)
+``` 
+
+
+
+
+
+
+
