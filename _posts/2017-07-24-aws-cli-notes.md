@@ -282,7 +282,9 @@ brew install s3fs
 **Ubuntu**
 
 ```
-sudo apt-get install s3fs 
+sudo apt-get install automake autotools-dev fuse g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config
+
+sudo apt-get install s3fs
 ```
 
 **Set S3 credential for s3fs**
@@ -303,21 +305,20 @@ aws s3api list-buckets --query "Buckets[].Name"
 
 ## Step 3: Mount the bucket
 
-Assume you want to mount it at `my-s3-mount`
+Assume you want to mount it at `my-s3-mount` with read and write permissions
 
 ```
-s3fs my-s3-bucket my-s3-mount
+s3fs my-s3-bucket my-s3-mount -o unmask=0022
 ```
 
-You can check it using command `mount`, you shoud see something like 
+You can check it using command `mount`, you shoud see something like
 
 ```
 s3fs@osxfuse0 on /Users/spencer/my-s3-mount (osxfuse, nodev, nosuid, synchronous, mounted by spencer)
-``` 
+```
 
+To unmount
 
-
-
-
-
-
+```
+fusermount -u my-s3-mount
+```
