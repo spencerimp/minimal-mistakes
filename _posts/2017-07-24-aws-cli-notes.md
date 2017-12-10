@@ -261,8 +261,7 @@ aws ec2 run-instances --image-id ami-6d48500b \
 
 # Simple Storage Service (S3)
 
-
-## Mount S3 bucket on a local machine or EC2 Linux instance
+## Mount S3 bucket on a OSX or Linux instance
 
 The idea is to mount the bucket using s3fs, thus we need to
 
@@ -322,3 +321,10 @@ To unmount
 ```
 fusermount -u my-s3-mount
 ```
+
+## Sync S3 bucket on EC2 instance
+
+```
+aws s3 sync s3://my-s3-bucket my-s3-drive
+```
+
