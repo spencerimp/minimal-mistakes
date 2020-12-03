@@ -5,6 +5,7 @@
 ## Install development dependencies
 
 ```bash
+# https://github.com/jekyll/jekyll-help/issues/209
 sudo gem install jekyll bundler
 bundle install
 ```
