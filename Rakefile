@@ -123,5 +123,5 @@ task :page do
 end # task :page
 
 task :preview do
-  system "bundle exec jekyll serve -w --incremental"
+  system "bundle exec jekyll serve -w --incremental --host=localhost"
 end

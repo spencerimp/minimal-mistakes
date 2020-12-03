@@ -17,7 +17,7 @@ baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : spencerimp/spencerimp.github.io
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
-words_per_minute         : 200
+words_per_minute         : 100
 comments:
   provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:
@@ -80,7 +80,7 @@ analytics:
 author:
   name             : "Spencer Teng"
   avatar           : "/assets/images/bio.png"
-  bio              : ""
+  bio              : "Python and machine learning engineer"
   location         : "Denmark"
   email            : "spencer.tengz@gmail.com"
   uri              :
@@ -141,7 +141,6 @@ exclude:
   - /test # ignore Minimal Mistakes /test
 keep_files:
   - .git
-  - .svn
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
@@ -180,7 +179,7 @@ timezone: # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
-gems:
+plugin:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
